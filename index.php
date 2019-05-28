@@ -22,7 +22,7 @@ require_once("config.php");
 //carrega um usuario usando o login e senha
 
 $usuario = new Usuario();
-$usuario->login("leto", '12345');
+$usuario->login("leto", '123456');
 
 echo $usuario;
 
