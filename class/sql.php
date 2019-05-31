@@ -13,7 +13,7 @@ class Sql extends PDO {
 	private function setParams($statment, $parameters = array()){
 
 		foreach ($parameters as $key => $value) {
-			$statment->bindParam($key, $value);
+			$this->setParam($statment, $key, $value);
 		}
 	}
 
@@ -27,7 +27,10 @@ class Sql extends PDO {
 
 		$stmt = $this->conn->prepare($rawquery);
 
+       // echo json_encode($stmt);
 		$this->setParams($stmt, $params);
+        //echo json_encode($stmt);
+
         $stmt->execute();
 
 		return $stmt;
@@ -37,7 +40,10 @@ class Sql extends PDO {
 	public function select($rawquery, $params = array()):array
 	{
 
+
 		$stmt = $this->query($rawquery, $params);
+
+		//echo json_encode($stmt);
 
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
