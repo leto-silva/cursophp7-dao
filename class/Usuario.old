@@ -66,7 +66,7 @@ class Usuario {
 
         $sql = new Sql();
 
-    	  $results = $sql->select("select * from tb_usuarios where deslogin = :LOGIN and dessenha = :PASSWORD", array(
+    	$results = $sql->select("select * from tb_usuarios where deslogin =:LOGIN and dessenha =:PASSWORD", array(
     		":LOGIN"=>$login,
     		":PASSWORD"=>$password
     		    	));
@@ -81,7 +81,7 @@ class Usuario {
     		$this->setDtcadastro( new DateTime($row["dtcadastro"]));
 
     	} else {
-        
+
     		throw new Exception("Login e/ou senha inválidos.");	
 
     	}
@@ -106,12 +106,7 @@ class Usuario {
    		));
    }
   
-   
-   public function __construct( $login ="", $password="" ){
 
-     $this->setDeslogin($login);
-     $this->setDessenha($password);
-   }
 
     public function __toString(){
 
@@ -123,36 +118,6 @@ class Usuario {
     	));
     }
 
-    public function setData($data){
-  
-      $this->setIdusuario($data["idusuario"]);
-      $this->setDeslogin($data["deslogin"]);
-      $this->setDessenha($data["dessenha"]);
-<<<<<<< HEAD
-      $this->setDtcadastro( new DateTime($data["dtcadastro"]));
-=======
-      $this->setDtcadastro( new DateTime($data["dtcadastro"]);
->>>>>>> 0bd978a8c4fc201b805d1664d963fe463f53e2cd
-    }
-
-    public function Insert(){
-
-      $sql = new Sql();
-
-<<<<<<< HEAD
-      $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(":LOGIN" => $this->getDeslogin(), ":PASSWORD"=>$this->getDessenha() ) );
-
-=======
-      $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD"), array(":LOGIN" => $this->getDeslogin(), ":PASSWORD"=>$this->getDessenha() );
->>>>>>> 0bd978a8c4fc201b805d1664d963fe463f53e2cd
-
-      if (count($results) > 0) {
-         $this->setData($results[0]);
-
-      }
-
-
-    }
     
 
 }
