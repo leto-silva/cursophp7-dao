@@ -128,23 +128,15 @@ class Usuario {
       $this->setIdusuario($data["idusuario"]);
       $this->setDeslogin($data["deslogin"]);
       $this->setDessenha($data["dessenha"]);
-<<<<<<< HEAD
       $this->setDtcadastro( new DateTime($data["dtcadastro"]));
-=======
-      $this->setDtcadastro( new DateTime($data["dtcadastro"]);
->>>>>>> 0bd978a8c4fc201b805d1664d963fe463f53e2cd
     }
 
     public function Insert(){
 
       $sql = new Sql();
 
-<<<<<<< HEAD
-      $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(":LOGIN" => $this->getDeslogin(), ":PASSWORD"=>$this->getDessenha() ) );
 
-=======
-      $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD"), array(":LOGIN" => $this->getDeslogin(), ":PASSWORD"=>$this->getDessenha() );
->>>>>>> 0bd978a8c4fc201b805d1664d963fe463f53e2cd
+      $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(":LOGIN" => $this->getDeslogin(), ":PASSWORD"=>$this->getDessenha() ) );
 
       if (count($results) > 0) {
          $this->setData($results[0]);
