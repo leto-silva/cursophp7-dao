@@ -47,11 +47,10 @@ require_once("config.php");
 //echo json_encode($aluno);
 
 $usuario = new Usuario();
-$usuario->loadById(5);
+$usuario->loadById(21);
 
 $usuario->delete();
 
-echo json_encode($usuario);
-
+echo ($usuario);
 
 ?>
