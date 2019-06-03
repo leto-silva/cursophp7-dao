@@ -29,10 +29,19 @@ require_once("config.php");
 //$usuario->login("leto", '123456');
 //>>>>>>> 0bd978a8c4fc201b805d1664d963fe463f53e2cd
 
-$aluno = new Usuario("Chupeta", "@340000");
-$aluno->Insert();
+//$aluno = new Usuario("xexeee", "@340000");
+//$aluno->Insert();
 
-echo($aluno);
+$usuario = new usuario();
+
+$usuario->loadById(23);
+
+
+//echo json_encode($aluno);
+
+$usuario->update("chaunde","14000799");
+//
+echo json_encode($usuario);
 
 
 ?>

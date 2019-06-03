@@ -48,14 +48,12 @@ class Usuario {
     		":ID"=>$id
     	));
 
+
+
     	if (count($results) > 0){
 
     		$row = $results[0];
-
-    		$this->setIdusuario($row["idusuario"]);
-    		$this->setDeslogin($row["deslogin"]);
-    		$this->setDessenha($row["dessenha"]);
-    		$this->setDtcadastro( new DateTime($row["dtcadastro"]));
+        $this->setData($row);
 
     	}
 
@@ -142,10 +140,22 @@ class Usuario {
          $this->setData($results[0]);
 
       }
-
-
     }
     
+
+    public function update($login, $password){
+      
+      $this->setDeslogin($login);
+      $this->setDessenha($password);
+
+
+      $sql = new Sql();
+      $sql->query("update tb_usuarios set deslogin= :LOGIN, dessenha= :PASSWORD where idusuario=:ID",
+                  array( ':LOGIN'=>$this->getDeslogin(), 
+                         ':PASSWORD'=>$this->getDessenha(),
+                         ':ID'=>$this->getIdusuario())
+                );
+    }
 
 }
 
