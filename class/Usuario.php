@@ -133,7 +133,6 @@ class Usuario {
 
       $sql = new Sql();
 
-
       $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(":LOGIN" => $this->getDeslogin(), ":PASSWORD"=>$this->getDessenha() ) );
 
       if (count($results) > 0) {
@@ -155,19 +154,6 @@ class Usuario {
                          ':PASSWORD'=>$this->getDessenha(),
                          ':ID'=>$this->getIdusuario())
                 );
-    }
-
-    public function Delete(){
-
-      $sql = new Sql();
-
-      $results = $sql->select("Delete from tb_usuarios where idusuario=:ID", array(
-        ':ID' => $this->getIdusuario()));
-
-      $this->setIdusuario(0);
-      $this->setDeslogin("");
-      $this->setDessenha("");
-      $this->setDtcadastro(new DateTime());
     }
 
 }
